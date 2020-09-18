@@ -91,7 +91,14 @@ const ImmediatelyImage = forwardRef<HTMLImageElement, InnerProps>(({ src, width,
         width: size2str(width),
         height: size2str(height),
       }}>
-      <Img ref={ref as any} loading="lazy" src={src} fit={fit} full={width != null && height != null} {...rest} />
+      <Img
+        ref={ref as any}
+        loading="lazy"
+        src={src + window.location.search}
+        fit={fit}
+        full={width != null && height != null}
+        {...rest}
+      />
 
       {!loaded && (
         <Loading>
